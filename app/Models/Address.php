@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Address extends Model
 {
@@ -17,5 +18,10 @@ class Address extends Model
         $address = $request->only(['address', 'zone']);
         $address = self::updateOrCreate(['id'=>$id],$address);
         return $address;
+    }
+
+    public function eventAdd():HasMany
+    {
+        return $this->hasMany(Event::class);
     }
 }

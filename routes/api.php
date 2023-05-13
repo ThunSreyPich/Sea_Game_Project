@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,15 +22,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // user ===============================================================
-Route::get('/getAllUser', [UserController::class, 'index']);
-Route::post('/storeUser', [UserController::class, 'store']);
-Route::get('/getDetail/{id}' , [UserController::class, 'show']);
-Route::put('/updateUser/{id}' , [UserController::class, 'update']);
-Route::delete('/deleteUser/{id}' , [UserController::class, 'destroy']);
+Route::get('/getAllUser',           [UserController::class, 'index']);
+Route::post('/storeUser',           [UserController::class, 'store']);
+Route::get('/getDetail/{id}' ,      [UserController::class, 'show']);
+Route::put('/updateUser/{id}' ,     [UserController::class, 'update']);
+Route::delete('/deleteUser/{id}',   [UserController::class, 'destroy']);
 
 // Addreess ============================================================
-Route::get('/getAllAddress',[AddressController::class, 'index']);
-Route::post('/postAddress',[AddressController::class, 'store']);
-Route::get('/showAddress/{id}',[AddressController::class, 'show']);
-Route::put('/updateAddress/{id}',[AddressController::class, 'update']);
+Route::get('/getAllAddress',        [AddressController::class, 'index']);
+Route::post('/postAddress',         [AddressController::class, 'store']);
+Route::get('/showAddress/{id}',     [AddressController::class, 'show']);
+Route::put('/updateAddress/{id}',   [AddressController::class, 'update']);
 Route::delete('/deleteAddress/{id}',[AddressController::class, 'destroy']);
+
+// Event =================================================================
+Route::get('/getAllEvent',          [EventController::class,'index']);
+Route::post('/postEvent',           [EventController::class,'store']);
+Route::get('/showEvent/{id}',       [EventController::class,'show']);
+Route::put('/updateEvent/{id}',     [EventController::class,'update']);
+Route::delete('/deleteEvent/{id}',  [EventController::class,'destroy']);

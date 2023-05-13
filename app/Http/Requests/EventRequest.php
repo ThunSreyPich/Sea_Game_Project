@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Validation\Rule;
 
-class AddressRequest extends FormRequest
+class EventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +16,7 @@ class AddressRequest extends FormRequest
     {
         return true;
     }
-    
+
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json(['success' => false, 'message' => $validator->errors()], 412));
@@ -30,11 +30,15 @@ class AddressRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'address'=>[
+            'name'=>[
                 'required',
-                Rule::unique('addresses')->ignore($this->id),
+                Rule::unique('events')->ignore($this->id),
             ],
-            'zone'   =>'required',
+            'date'=>'required',
+            'time'=>'required',
+            'description'=>'required',
+            'user_id'=>'required',
+            'address_id'=>'required',
         ];
     }
 }
