@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,10 @@ Route::post('/postEvent',           [EventController::class,'store']);
 Route::get('/showEvent/{id}',       [EventController::class,'show']);
 Route::put('/updateEvent/{id}',     [EventController::class,'update']);
 Route::delete('/deleteEvent/{id}',  [EventController::class,'destroy']);
+
+// Team ==================================================================
+Route::get('/getAllTeam',           [TeamController::class,'index']);
+Route::post('/postTeam',            [TeamController::class,'store']);
+Route::get('/showTeam/{id}',        [TeamController::class,'show']);
+Route::put('/updateTeam/{id}',      [TeamController::class,'update']);
+Route::delete('/deleteTeam/{id}',   [TeamController::class,'destroy']);
