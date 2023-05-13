@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,10 @@ Route::post('/storeUser', [UserController::class, 'store']);
 Route::get('/getDetail/{id}' , [UserController::class, 'show']);
 Route::put('/updateUser/{id}' , [UserController::class, 'update']);
 Route::delete('/deleteUser/{id}' , [UserController::class, 'destroy']);
+
+// Addreess ============================================================
+Route::get('/getAllAddress',[AddressController::class, 'index']);
+Route::post('/postAddress',[AddressController::class, 'store']);
+Route::get('/showAddress/{id}',[AddressController::class, 'show']);
+Route::put('/updateAddress/{id}',[AddressController::class, 'update']);
+Route::delete('/deleteAddress/{id}',[AddressController::class, 'destroy']);
