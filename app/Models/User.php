@@ -60,4 +60,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Team::class);
     }
+    public function ticket():HasOne
+    {
+        return $this->hasOne(Ticket::class);
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeamRequest;
 use App\Http\Resources\TeamResource;
 use App\Models\Team;
+use App\Models\TeamEvent;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -13,15 +15,14 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return 'Team::all()';
+        return Team::all();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
-        // dd(request('teamName'));
         $team = Team::teams($request);
         return response()->json(['success'=>true, 'data'=>$team]);
     }
@@ -39,7 +40,7 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TeamRequest $request, string $id)
     {
         $updateTeam = Team::teams($request, $id);
         return response()->json(['success'=>true, 'meassage'=>'Team is upDate', 'data'=>$updateTeam], 200);

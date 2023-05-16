@@ -15,14 +15,23 @@ class Team extends Model
         'user_id',
     ];
 
-    public function team():BelongsTo
+    // -----------------------------------------------
+    public function user():BelongsTo
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(User::class);
     }
 
+
+    // many to many =======================================
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'team_events')->withTimestamps();
+    }
+    
     public static function teams($request, $id=null){
         $team = $request->only(['teamName','user_id']);
         $team = self::updateOrCreate(['id'=>$id],$team);
         return $team;
     }
+
 }

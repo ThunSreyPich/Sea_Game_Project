@@ -15,7 +15,6 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
-
     }
 
     /**
@@ -25,7 +24,6 @@ class UserController extends Controller
     {
         $userStore = User::storeUser($request);
         return response()->json(['success'=>true, 'data'=>$userStore],200);
-
     }
 
     /**
@@ -45,7 +43,6 @@ class UserController extends Controller
     {
         $updateUser = User::storeUser($request,$id);
         return response()->json(['success'=>true, 'meassage'=>'user is upDate', 'data'=>$updateUser]);
-
     }
 
     /**

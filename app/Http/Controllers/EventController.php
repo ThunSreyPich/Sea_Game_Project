@@ -14,7 +14,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        return Event::all();
+        $allEvents = Event::all();
+        $eventName = request('name');
+        $allEvents = Event::where('name', 'like', '%'.$eventName. '%')->get();
+        $allEvents =  EventResource::collection($allEvents);
+        return $allEvents;
     }
 
     /**
@@ -41,6 +45,7 @@ class EventController extends Controller
      */
     public function update(EventRequest $request, string $id)
     {
+
         $updateevent = Event::event($request, $id);
         return response()->json(['success'=>true, 'meassage'=>'events is upDate', 'data'=>$updateevent]);
     }
