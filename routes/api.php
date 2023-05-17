@@ -44,7 +44,6 @@ Route::post('/postEvent',           [EventController::class,'store']);
 Route::get('/showEvent/{id}',       [EventController::class,'show']);
 Route::put('/updateEvent/{id}',     [EventController::class,'update']);
 Route::delete('/deleteEvent/{id}',  [EventController::class,'destroy']);
-// Route::get('/searchEvent/{name}',   [EventController::class,'show']);
 
 // Team ==================================================================
 Route::get('/getAllTeam',           [TeamController::class,'index']);
@@ -52,13 +51,6 @@ Route::post('/postTeam',            [TeamController::class,'store']);
 Route::get('/showTeam/{id}',        [TeamController::class,'show']);
 Route::put('/updateTeam/{id}',      [TeamController::class,'update']);
 Route::delete('/deleteTeam/{id}',   [TeamController::class,'destroy']);
-
-// TeamEvent ============================================================
-Route::get('/getAllEventTeam',      [TeamEventController::class,'index']);
-Route::post('/postEventTeam',       [TeamEventController::class,'store']);
-Route::get('/showEventTeam/{id}',   [TeamEventController::class,'show']);
-Route::put('/updateEventTeam/{id}', [TeamEventController::class,'update']);
-Route::delete('/deleteEventTeam/{id}',[TeamEventController::class,'destroy']);
 
 // Ticket ================================================================
 Route::get('/getAllTicket',         [TicketController::class,'index']);
