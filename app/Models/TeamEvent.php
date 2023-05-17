@@ -10,8 +10,4 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class TeamEvent extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'team_id',
-        'event_id'
-    ];
 }

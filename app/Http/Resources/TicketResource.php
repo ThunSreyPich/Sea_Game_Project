@@ -16,7 +16,10 @@ class TicketResource extends JsonResource
     {
         return [
             'created_by'=>$this->user->name ?? null,
+            'events'=>$this->event->address,
+            'teams'=>TeamResource::collection($this->event->teams),
             'events'=>$this->event,
+            
         ];
     }
 }

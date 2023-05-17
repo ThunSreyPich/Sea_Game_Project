@@ -26,5 +26,4 @@ class Ticket extends Model
         $ticket = self::updateOrCreate(['id'=>$id],$ticket);
         return $ticket;
     }
-
 }
